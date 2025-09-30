@@ -1,0 +1,116 @@
+:root{
+  --ink:#e9edf5; --muted:#a6b0c3; --brand:#8b5cf6; --brand-2:#22d3ee;
+  --line:rgba(255,255,255,.08); --radius:12px;
+
+  --sp-1:8px; --sp-2:10px; --sp-3:14px; --sp-4:20px; --sp-5:28px;
+
+  /* navbar sizing */
+  --nav-h: 48px;
+}
+
+html, body { margin:0; }
+.wrap{min-height:100vh; display:flex; flex-direction:column}
+.main{flex:1; padding: var(--sp-4);}
+
+/* ================= NAV ================ */
+.nav{
+  position:sticky; top:0; z-index:50;
+  height: var(--nav-h);
+  backdrop-filter: blur(8px);
+  background: rgba(5, 6, 12, 0.6);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  height: var(--nav-h);
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px;
+  padding: 0 var(--sp-4);
+}
+
+/* left cluster keeps hamburger + logo aligned */
+.brand-cluster{
+  display:flex; align-items:center; gap:10px; line-height:1;
+}
+
+/* compact square hamburger (24x24), centered bars */
+.menu-toggle{
+  display:none; /* show on mobile */
+  appearance:none; border:0; background:transparent; cursor:pointer;
+  width:24px; height:24px; border-radius:6px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:3px; padding:0; line-height:1;
+}
+.menu-toggle .bar{
+  width:12px; height:2px; background:var(--ink); border-radius:2px;
+}
+
+.brand{
+  display:inline-flex; align-items:center; gap:8px; color:var(--ink); font-weight:800; line-height:1;
+}
+.logo{height:22px} /* === put your <img class="logo" /> here later === */
+.badge{
+  width:18px; height:18px; border-radius:6px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+}
+.brand-name{font-size:16px; letter-spacing:.3px}
+
+/* desktop menu */
+.menu{display:flex; align-items:center; gap:10px}
+.menu a{
+  padding:6px 8px; border-radius:8px; color:var(--ink); text-decoration:none; line-height:1;
+}
+.menu a.active{background:rgba(255,255,255,.1)}
+
+/* mobile drawer */
+@media (max-width: 900px){
+  .menu-toggle{display:flex} /* show the square hamburger */
+  .menu{
+    position:fixed; inset: var(--nav-h) 0 auto 0;
+    background: rgba(10,10,21,.96);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+    display:none; flex-direction:column; align-items:stretch; gap:0; z-index:60;
+  }
+  .menu a{padding:14px 18px; border-top:1px solid var(--line); border-radius:0}
+  .menu a:first-child{border-top:0}
+  .menu.open{display:flex}
+}
+
+/* ================= FOOTER ================ */
+.site-footer{
+  border-top:1px solid var(--line);
+  background:#0a0a15; color:var(--ink);
+  margin-top: var(--sp-5);
+}
+.footer-top{
+  display:grid; gap: var(--sp-4);
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: var(--sp-5) var(--sp-4) var(--sp-4);
+}
+.footer-brand{display:inline-flex; align-items:center; gap:8px; font-weight:800; line-height:1;}
+.footer-desc{color:var(--muted); margin: var(--sp-2) 0 0; max-width:60ch}
+.footer-col h4{margin:0 0 var(--sp-2); font-size:16px}
+.footer-list{list-style:none; padding:0; margin:0; display:grid; gap:10px}
+.footer-link{color:var(--ink); opacity:.9; text-decoration:none}
+.footer-link:hover{opacity:1; text-decoration:underline}
+.socials{display:flex; gap:10px; margin-top: var(--sp-2)}
+.social-btn{
+  width:36px; height:36px; display:grid; place-items:center;
+  border:1px solid var(--line); border-radius:10px; background:rgba(255,255,255,.03)
+}
+
+.footer-bottom{
+  border-top:1px solid var(--line);
+  display:flex; justify-content:space-between; align-items:center; gap:10px;
+  padding: var(--sp-3) var(--sp-4);
+  color: var(--muted);
+}
+
+/* footer responsive */
+@media (max-width: 900px){
+  .footer-top{grid-template-columns: 1fr 1fr}
+}
+@media (max-width: 560px){
+  .footer-top{grid-template-columns: 1fr}
+  .footer-bottom{flex-direction:column; align-items:flex-start}
+}
