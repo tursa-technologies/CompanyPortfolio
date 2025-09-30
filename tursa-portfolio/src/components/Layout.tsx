@@ -46,9 +46,9 @@ export default function Layout({ children }: LayoutProps) {
           </div>
 
           <nav className={`menu ${menuOpen ? "open" : ""}`}>
-            <NavLink to="/" end onClick={() => setMenuOpen(false)} style={{ fontFamily: "Brake" }}>Portfolio</NavLink>
-            <NavLink to="/about" onClick={() => setMenuOpen(false)} style={{ fontFamily: "Brake" }}>About</NavLink>
-            <NavLink to="/contact" onClick={() => setMenuOpen(false)} style={{ fontFamily: "Brake" }}>Contact</NavLink>
+            <NavLink to="/" end onClick={() => setMenuOpen(false)}>Portfolio</NavLink>
+            <NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink>
+            <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink>
           </nav>
         </div>
       </nav>
