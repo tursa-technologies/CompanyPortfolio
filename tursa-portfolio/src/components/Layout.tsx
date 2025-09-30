@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Layout.css";
+import githubImg from "../assets/github (3).png";
+import linkedinImg from "../assets/linkedin.png";
+import youtubeImg from "../assets/youtube.png";
+import instagramImg from "../assets/instagram.png";
 
 type LayoutProps = { children: React.ReactNode };
 
@@ -59,12 +63,40 @@ export default function Layout({ children }: LayoutProps) {
                 <span className="brand-name">TURSA</span>
               </div>
               <p className="footer-desc">
-                We build useful software & IoT—clean UIs, reliable backends, and hardware that ships.
+                We build useful software & IoT—clean UIs, reliable backends, and hardware that ships. This is where creativity meets accessibility.
               </p>
               <div className="socials">
-                <a href="#" className="social-btn" aria-label="GitHub" onClick={(e)=>e.preventDefault()}>GH</a>
-                <a href="#" className="social-btn" aria-label="X" onClick={(e)=>e.preventDefault()}>X</a>
-                <a href="#" className="social-btn" aria-label="LinkedIn" onClick={(e)=>e.preventDefault()}>In</a>
+                <a href="https://github.com/tursa-technologies" className="social-btn" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                  <img 
+                    src={githubImg} 
+                    alt="GitHub" 
+                    style={{ width: "24px", height: "24px" }} 
+                  />
+                </a>
+
+                <a href="xx" className="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                  <img 
+                    src={linkedinImg} 
+                    alt="LinkedIn" 
+                    style={{ width: "24px", height: "24px" }} 
+                  />
+                </a>
+
+                <a href="https://www.youtube.com/@TURSA-TECH" className="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                  <img 
+                    src={youtubeImg} 
+                    alt="YouTube" 
+                    style={{ width: "24px", height: "24px" }} 
+                  />
+                </a>
+
+                <a href="https://www.instagram.com/tursa_tech/" className="social-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                  <img 
+                    src={instagramImg} 
+                    alt="Instagram" 
+                    style={{ width: "24px", height: "24px" }} 
+                  />
+                </a>
               </div>
             </div>
 
@@ -74,15 +106,6 @@ export default function Layout({ children }: LayoutProps) {
                 <li><NavLink className="footer-link" to="/" end>Portfolio</NavLink></li>
                 <li><NavLink className="footer-link" to="/about">About</NavLink></li>
                 <li><NavLink className="footer-link" to="/contact">Contact</NavLink></li>
-              </ul>
-            </div>
-
-            <div className="footer-col">
-              <h4>Resources</h4>
-              <ul className="footer-list">
-                <li><a className="footer-link" href="#">Case studies</a></li>
-                <li><a className="footer-link" href="#">Docs</a></li>
-                <li><a className="footer-link" href="#">Privacy</a></li>
               </ul>
             </div>
           </div>
