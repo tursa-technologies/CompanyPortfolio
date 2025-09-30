@@ -5,6 +5,8 @@ import githubImg from "../assets/github (3).png";
 import linkedinImg from "../assets/linkedin.png";
 import youtubeImg from "../assets/youtube.png";
 import instagramImg from "../assets/instagram.png";
+import logo from "../assets/NoBGLogo.png";
+import icon from "../assets/IconNoBGLogo.png"
 
 type LayoutProps = { children: React.ReactNode };
 
@@ -35,17 +37,18 @@ export default function Layout({ children }: LayoutProps) {
             </button>
 
             <div className="brand">
-              {/* === Place your logo here === */}
-              {/* <img src={logoImg} alt="TURSA logo" className="logo" /> */}
-              <span className="badge" />
-              <span className="brand-name">TURSA</span>
+                <img 
+                src={icon} 
+                alt="TURSA Logo" 
+                style={{ width: "64px", height: "64px", objectFit: "contain" }} 
+                />
             </div>
           </div>
 
           <nav className={`menu ${menuOpen ? "open" : ""}`}>
-            <NavLink to="/" end onClick={() => setMenuOpen(false)}>Portfolio</NavLink>
-            <NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink>
-            <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink>
+            <NavLink to="/" end onClick={() => setMenuOpen(false)} style={{ fontFamily: "Brake" }}>Portfolio</NavLink>
+            <NavLink to="/about" onClick={() => setMenuOpen(false)} style={{ fontFamily: "Brake" }}>About</NavLink>
+            <NavLink to="/contact" onClick={() => setMenuOpen(false)} style={{ fontFamily: "Brake" }}>Contact</NavLink>
           </nav>
         </div>
       </nav>
@@ -58,10 +61,13 @@ export default function Layout({ children }: LayoutProps) {
         <div className="container">
           <div className="footer-top">
             <div>
-              <div className="footer-brand">
-                <span className="badge" />
-                <span className="brand-name">TURSA</span>
-              </div>
+                <div className="footer-brand" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                <img 
+                  src={logo} 
+                  alt="TURSA Logo" 
+                  style={{ width: "110px", height: "110px", objectFit: "contain" }} 
+                />
+                </div>
               <p className="footer-desc">
                 We build useful software & IoT—clean UIs, reliable backends, and hardware that ships. This is where creativity meets accessibility.
               </p>
@@ -118,3 +124,5 @@ export default function Layout({ children }: LayoutProps) {
     </div>
   );
 }
+
+
